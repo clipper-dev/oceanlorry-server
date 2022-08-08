@@ -1,0 +1,218 @@
+import '../../App.css';
+import React, { useState, useRef, useEffect } from 'react';
+import { EditTodoModal, AddNewProjectModal } from '../Modal'
+import {TodoItem, TodoItemCompact} from '../TodoItem'
+import { v4 as uuidv4 } from 'uuid';
+import './TodoScreen.css';
+import { Button } from '../Button';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTodo, toggleComplete, setTodos } from '../../features/todos/todosSlice';
+
+
+function TodoScreen() {
+	//references and generic components
+	const [button] = useState(true);
+	const todoNameRef = useRef();
+	const searchBarRef = useRef();
+	//redux boiler plate for loading data
+	const userProfile = useSelector((state) => state.profile);
+	const dispatch = useDispatch()
+
+	//other components boiler blate code
+	const [openTodoEditModal, setOpenTodoEditModal] = useState(''); //'' refers to the id of the edited todo (modal)
+
+	//LOAD TODO LIST FROM REDUX + LOCAL STORAGE
+	//load the todo list once at the very beginning
+	const _todos = useSelector((state) => state.todos.todoItems);
+	//getting the list of todos and making a virtual object out of it
+	const todos = [..._todos];
+
+	//getting the list of projects and storing it into the dictionary [id] = name
+	const projectDictionary = {};
+	const [chosenProjectID, handleChosenProjectID] = useState('');
+	let chosenProjectName = '';
+	for (var proj in userProfile.projects) {
+		projectDictionary[userProfile.projects[proj].id] = userProfile.projects[proj].name;
+	}
+	projectDictionary[''] = 'General';
+	//set the initial project name
+	chosenProjectName = projectDictionary[chosenProjectID];
+
+	//adding new project
+	const [openAddNewProjectModal, setOpenAddNewProjectModal] = useState(false);
+
+	//TODO SECTIONS 
+	//MODAL POPUP
+	//edit to using a modal
+	function toggleEditTodo(id) {
+		setOpenTodoEditModal(id);
+	}
+	//close edit todo modal
+	function closeModal() {
+		console.log('closing the edit todo modal')
+		setOpenTodoEditModal('');
+	}
+
+	//open/close modal for adding a new project
+	function handleShowAddNewProjectModal() {
+		setOpenAddNewProjectModal(!openAddNewProjectModal);
+	}
+
+	//GENERIC FUNCTIONS FOR WORKING WITH TODOS
+
+	//get a todo item through an unique ID
+	function getTodoById(id) {
+		const _todo = todos.find(_todo => _todo.id === id)
+		return _todo;
+	}
+
+
+
+
+	//saves the todo list every time it is altered
+
+	function handleClearTodos() {
+		const newTodos = todos.filter(todo => !todo.completed)
+		dispatch(setTodos(newTodos));
+	}
+
+	//change the completion value of each todo once the completed button was pressed
+	function toggleTodo(id) {
+		dispatch(toggleComplete(id));
+	}
+
+	//adding new todo and saving it to the redux
+	function handleAddTodo(e) {
+		const name = todoNameRef.current.value;
+		if (name === '');
+		else {
+			const todo = {
+				id: uuidv4(),
+				name: name,
+				completed: false,
+				project: {
+					id: chosenProjectID,
+					name: chosenProjectName,
+				},
+				tags: []
+			};
+			dispatch(addTodo(todo));
+		}
+		/* dispatch(setTodos(previousTodos => {
+			return [...previousTodos, { id: uuidv4(), name: name, completed: false }]
+		})) */
+		todoNameRef.current.value = null;
+	}
+
+	//handles filtering based on chosen project
+	function handleFilterTodo(project) {
+		console.log(project);
+		handleChosenProjectID(project.id);
+		chosenProjectName = project.name;
+		console.log(chosenProjectName);
+	}
+
+	///SEARCH LOGIC
+	//handle searching
+	/* searchBarRef.current.addEventListener('input', e=>{
+		const value = e.target.value;
+		console.log(value);
+	}) */
+	//isFound
+	//returns true if the value is found within:
+	// - the name of the todo
+	// - tags of the todo
+	// - project name
+	/* todo.name.toLowerCase().includes(searchBarValue)
+									|| todo.project.name.toLowerCase().includes(searchBarValue)
+									|| (todo.tags[0]!=null && todo.tags[0].name.toLowerCase().includes(searchBarValue))
+									|| (todo.tags[1]!=null && todo.tags[1].name.toLowerCase().includes(searchBarValue))
+									|| (todo.tags[2]!=null && todo.tags[2].name.toLowerCase().includes(searchBarValue))
+	 */
+	function isFound(todo, value) {
+		const _searchedValue = value.toLowerCase();
+		if (todo.name.toLowerCase().includes(_searchedValue)) return true;
+		if (todo.project.name.toLowerCase().includes(_searchedValue)) return true;
+		if (todo.tags != null && todo.tags != undefined) {
+			todo.tags.forEach(tag => {
+				if (tag.name.toLowerCase().includes(_searchedValue)) return true;
+			});
+		}
+		return false;
+	}
+	const [searchBarValue, handleSearchBarValue] = useState('');
+	function handleSearchBar() {
+		console.log(searchBarRef.current.value)
+		handleSearchBarValue(searchBarRef.current.value.toLowerCase());
+	}
+
+	//KEY HANDLING
+	// -- enter
+	//binds enter key to add a new todo
+	const handleEnterKeyPress = (event) => {
+		if (event.key === "Enter" && todoNameRef.current.value != null) {
+			handleAddTodo();
+		}
+	}
+	/* // -- escape
+	//binds escape key to close the modal if open
+	const handleEscapeKeyPress = (event) => {
+		if (event.key === "Escape" && todoEditModal != '') {
+			closeModal();
+		}
+	} */
+
+	return (
+		<>
+			<div className='content-container'>
+				<div className='todoScreen-container'>
+					<div className='todoScreen-toolbox'>
+
+						<input id='search-bar' ref={searchBarRef} type="text" onChange={() => handleSearchBar()} />
+						<svg className='icon' viewBox='0 0 24 24' width='24' height='24' onClick={() => handleSearchBar()}>
+							<path d=
+								"m19.6 21-6.3-6.3q-.75.6-1.725.95Q10.6 16 9.5 16q-2.725 0-4.612-1.887Q3 12.225 3 9.5q0-2.725 1.888-4.613Q6.775 3 9.5 3t4.613 1.887Q16 6.775 16 9.5q0 1.1-.35 2.075-.35.975-.95 1.725l6.3 6.3ZM9.5 14q1.875 0 3.188-1.312Q14 11.375 14 9.5q0-1.875-1.312-3.188Q11.375 5 9.5 5 7.625 5 6.312 6.312 5 7.625 5 9.5q0 1.875 1.312 3.188Q7.625 14 9.5 14Z"
+							/></svg>
+					</div>
+					<div className='todoScreen-toolbox'>
+
+						<input ref={todoNameRef} type="text" onKeyDown={handleEnterKeyPress} autoFocus />
+						{button && <Button className='btn--primary--medium' onClick={handleAddTodo}>Add</Button>}
+						{button && <Button className='btn--primary--medium' onClick={handleClearTodos}>Clear</Button>}
+					</div>
+					{todos.map(todo => {
+						return <>
+							{((todo.project.id === chosenProjectID) || (chosenProjectID === ''))
+								&& (isFound(todo, searchBarValue))
+								&&
+								<TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} toggleEditTodo={toggleEditTodo}/>}
+						</>
+					})}
+
+				</div>
+				<div className='project-menu'>
+					<ul className='project-menu-items'>
+						<p key='general-project' className={chosenProjectID === '' ? 'chosen-project' : 'project'} onClick={() => handleFilterTodo({ id: '', name: 'General' })}>
+							<span>General</span>
+						</p>
+						{userProfile.projects.map((project, index) => {
+							return (
+								<p key={project.id} className={chosenProjectID === project.id ? 'chosen-project' : 'project'} onClick={() => handleFilterTodo(project)}>
+									<span>{project.name}</span>
+								</p>
+							)
+						})}
+						<p key='add-new-project' className={'add-new-project'} onClick={() => handleShowAddNewProjectModal()}>
+							<span>+ Add new</span>
+						</p>
+					</ul>
+
+				</div>
+				{openTodoEditModal !== '' && <EditTodoModal key='editTodoModal' todo={getTodoById(openTodoEditModal)} setOpenTodoEditModal={setOpenTodoEditModal} />}
+				{openAddNewProjectModal && <AddNewProjectModal key='addNewProjectModel' setOpenAddNewProjectModal={setOpenAddNewProjectModal} />}
+			</div>
+		</>
+	)
+}
+
+export default TodoScreen
