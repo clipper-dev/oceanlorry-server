@@ -1,0 +1,30 @@
+.main {
+    position: relative;
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.code-block {
+    margin: 2rem;
+    background-color: #242424;
+    color: #f3f3f3;
+    width: fit-content;
+    padding-right: 30ch;
+    border: solid 3px gray;
+    border-radius: 10px;
+}
+
+.code-line {
+    list-style-type: decimal;
+}
+
+.tab-1 {
+    text-indent: 3ch;
+}
+.tab-2 {
+    text-indent: 6ch;
+}
+.tab-3 {
+    text-indent: 9ch;
+}

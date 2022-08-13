@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import { useState } from 'react';
+import styles from '../styles/Code.module.css'
+
 
 {/*Icons*/ }
 import { FaRegCheckSquare, FaRegSquare, FaLock, FaUser } from 'react-icons/fa';
@@ -21,17 +23,29 @@ export default function Admin() {
 
         <>
           {/*Main content, only for logged users*/}
-          <title>Track your service | TrackID</title>
+          <title>Code test | TrackID</title>
         </>
         <meta name="description" content="The only productivity blog you need." />
         <link rel="icon" href="/favicon.ico" />
-        
+
       </Head>
 
 
-      <NavbarSimple/>
-
       
+        <NavbarSimple />
+
+      <div className={styles['main']}>
+
+
+        <div className={styles['code-block']}>
+          <ol>
+            <li className={[styles['code-line'],styles['tab-1']].join(" ")}>class Example()</li>
+            <li className={[styles['code-line'],styles['tab-1']].join(" ")}>class</li>
+          </ol>
+        </div>
+
+      </div>
+
 
     </div>
   )
