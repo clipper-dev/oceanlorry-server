@@ -39,7 +39,7 @@ export default function Admin() {
 
         <div className={styles['code-block']}>
           <ol>
-            <li className={[styles['code-line'],styles['tab-1']].join(" ")}>class Example()</li>
+            <li className={[styles['code-line'],styles['tab-1']].join(" ")}>class <span className={styles.class}>Example()</span></li>
             <li className={[styles['code-line'],styles['tab-1']].join(" ")}>class</li>
           </ol>
         </div>

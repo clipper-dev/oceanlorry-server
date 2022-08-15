@@ -28,3 +28,14 @@
 .tab-3 {
     text-indent: 9ch;
 }
+
+.background {
+    background-color: rgb(30,30,30);
+}
+.class {
+    color: rgb(206, 145, 120);
+}
+
+.keyword {
+    color: rgb(218, 99, 161);
+}
