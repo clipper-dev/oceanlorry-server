@@ -1,0 +1,313 @@
+:root {
+  /* colors */
+  --coolbiej-colors-transparent: transparent;
+  --coolbiej-colors-black: #000000;
+  --coolbiej-colors-white: #ffffff;
+
+  --coolbiej-colors-whiteAlpha-50: rgba(255, 255, 255, 0.04);
+  --coolbiej-colors-whiteAlpha-100: rgba(255, 255, 255, 0.06);
+  --coolbiej-colors-whiteAlpha-200: rgba(255, 255, 255, 0.08);
+  --coolbiej-colors-whiteAlpha-300: rgba(255, 255, 255, 0.16);
+  --coolbiej-colors-whiteAlpha-400: rgba(255, 255, 255, 0.24);
+  --coolbiej-colors-whiteAlpha-500: rgba(255, 255, 255, 0.36);
+  --coolbiej-colors-whiteAlpha-600: rgba(255, 255, 255, 0.48);
+  --coolbiej-colors-whiteAlpha-700: rgba(255, 255, 255, 0.64);
+  --coolbiej-colors-whiteAlpha-800: rgba(255, 255, 255, 0.8);
+  --coolbiej-colors-whiteAlpha-900: rgba(255, 255, 255, 0.92);
+
+  --coolbiej-colors-blackAlpha-50: rgba(0, 0, 0, 0.04);
+  --coolbiej-colors-blackAlpha-100: rgba(0, 0, 0, 0.06);
+  --coolbiej-colors-blackAlpha-200: rgba(0, 0, 0, 0.08);
+  --coolbiej-colors-blackAlpha-300: rgba(0, 0, 0, 0.16);
+  --coolbiej-colors-blackAlpha-400: rgba(0, 0, 0, 0.24);
+  --coolbiej-colors-blackAlpha-500: rgba(0, 0, 0, 0.36);
+  --coolbiej-colors-blackAlpha-600: rgba(0, 0, 0, 0.48);
+  --coolbiej-colors-blackAlpha-700: rgba(0, 0, 0, 0.64);
+  --coolbiej-colors-blackAlpha-800: rgba(0, 0, 0, 0.8);
+  --coolbiej-colors-blackAlpha-900: rgba(0, 0, 0, 0.92);
+
+  --coolbiej-colors-gray-50: #f7fafc;
+  --coolbiej-colors-gray-100: #edf2f7;
+  --coolbiej-colors-gray-200: #e2e8f0;
+  --coolbiej-colors-gray-300: #cbd5e0;
+  --coolbiej-colors-gray-400: #a0aec0;
+  --coolbiej-colors-gray-500: #718096;
+  --coolbiej-colors-gray-600: #4a5568;
+  --coolbiej-colors-gray-700: #2d3748;
+  --coolbiej-colors-gray-800: #1a202c;
+  --coolbiej-colors-gray-900: #171923;
+
+  --coolbiej-colors-tomato-100: #ffe1da;
+  --coolbiej-colors-tomato-200: #ffc3b6;
+  --coolbiej-colors-tomato-300: #ffa491;
+  --coolbiej-colors-tomato-400: #ff866d;
+  --coolbiej-colors-tomato-500: #ff6848;
+  --coolbiej-colors-tomato-600: #cc533a;
+  --coolbiej-colors-tomato-700: #993e2b;
+  --coolbiej-colors-tomato-800: #662a1d;
+  --coolbiej-colors-tomato-900: #33150e;
+
+  --coolbiej-colors-green-100: #c6f6d5;
+  --coolbiej-colors-green-200: #9ae6b4;
+  --coolbiej-colors-green-300: #68d391;
+  --coolbiej-colors-green-400: #48bb78;
+  --coolbiej-colors-green-500: #38a169;
+  --coolbiej-colors-green-600: #2f855a;
+  --coolbiej-colors-green-700: #276749;
+  --coolbiej-colors-green-800: #22543d;
+  --coolbiej-colors-green-900: #1c4532;
+
+  --coolbiej-colors-red-900: #2e0c0c;
+  --coolbiej-colors-red-800: #5c1919;
+  --coolbiej-colors-red-700: #892525;
+  --coolbiej-colors-red-600: #b73232;
+  --coolbiej-colors-red-500: #e53e3e;
+  --coolbiej-colors-red-400: #ea6565;
+  --coolbiej-colors-red-300: #892525;
+  --coolbiej-colors-red-200: #5c1919;
+  --coolbiej-colors-red-100: #2e0c0c;
+
+  --coolbiej-colors-honey-900: #332709;
+  --coolbiej-colors-honey-800: #664e13;
+  --coolbiej-colors-honey-700: #99761c;
+  --coolbiej-colors-honey-600: #cc9d26;
+  --coolbiej-colors-honey-500: #ffc42f;
+  --coolbiej-colors-honey-400: #ffd059;
+  --coolbiej-colors-honey-300: #ffdc82;
+  --coolbiej-colors-honey-200: #ffe7ac;
+  --coolbiej-colors-honey-100: #fff3d5;
+
+  --coolbiej-colors-purple-900: #150e31;
+  --coolbiej-colors-purple-800: #2a1d63;
+  --coolbiej-colors-purple-700: #402b94;
+  --coolbiej-colors-purple-600: #553ac6;
+  --coolbiej-colors-purple-500: #6a48f7;
+  --coolbiej-colors-purple-400: #886df9;
+  --coolbiej-colors-purple-300: #a691fa;
+  --coolbiej-colors-purple-200: #c3b6fc;
+  --coolbiej-colors-purple-100: #e1dafd;
+
+  --coolbiej-colors-blueflu-100: #def2fe;
+  --coolbiej-colors-blueflu-200: #bde6fc;
+  --coolbiej-colors-blueflu-300: #9dd9fb;
+  --coolbiej-colors-blueflu-400: #7ccdf9;
+  --coolbiej-colors-blueflu-500: #5bc0f8;
+  --coolbiej-colors-blueflu-600: #499ac6;
+  --coolbiej-colors-blueflu-700: #377395;
+  --coolbiej-colors-blueflu-800: #244d63;
+  --coolbiej-colors-blueflu-900: #122632;
+  
+  --coolbiej-colors-pinky-100: #ffecf2;
+  --coolbiej-colors-pinky-200: #ffd9e5;
+  --coolbiej-colors-pinky-300: #fec7d9;
+  --coolbiej-colors-pinky-400: #feb4cc;
+  --coolbiej-colors-pinky-500: #fea1bf;
+  --coolbiej-colors-pinky-600: #cb8199;
+  --coolbiej-colors-pinky-700: #986173;
+  --coolbiej-colors-pinky-800: #66404c;
+  --coolbiej-colors-pinky-900: #332026;
+  
+  --coolbiej-colors-greendream-100: #e6fbeb;
+  --coolbiej-colors-greendream-200: #ccf8d6;
+  --coolbiej-colors-greendream-300: #b3f4c2;
+  --coolbiej-colors-greendream-400: #99f1ad;
+  --coolbiej-colors-greendream-500: #80ed99;
+  --coolbiej-colors-greendream-600: #66be7a;
+  --coolbiej-colors-greendream-700: #4d8e5c;
+  --coolbiej-colors-greendream-800: #335f3d;
+  --coolbiej-colors-greendream-900: #1a2f1f;
+  
+  --coolbiej-colors-greychristian-100: #f0f0f0;
+  --coolbiej-colors-greychristian-200: #e0e0e0;
+  --coolbiej-colors-greychristian-300: #d1d1d1;
+  --coolbiej-colors-greychristian-400: #c1c1c1;
+  --coolbiej-colors-greychristian-500: #b2b2b2;
+  --coolbiej-colors-greychristian-600: #8e8e8e;
+  --coolbiej-colors-greychristian-700: #6b6b6b;
+  --coolbiej-colors-greychristian-800: #474747;
+  --coolbiej-colors-greychristian-900: #242424;
+  
+  --coolbiej-colors-redhot-100: #fbcccc;
+  --coolbiej-colors-redhot-200: #f79999;
+  --coolbiej-colors-redhot-300: #f46767;
+  --coolbiej-colors-redhot-400: #f03434;
+  --coolbiej-colors-redhot-500: #ec0101;
+  --coolbiej-colors-redhot-600: #bd0101;
+  --coolbiej-colors-redhot-700: #8e0101;
+  --coolbiej-colors-redhot-800: #5e0000;
+  --coolbiej-colors-redhot-900: #2f0000;
+  
+  --coolbiej-colors-orange-100: #ffe4cc;
+  --coolbiej-colors-orange-200: #ffc999;
+  --coolbiej-colors-orange-300: #ffad66;
+  --coolbiej-colors-orange-400: #ff9233;
+  --coolbiej-colors-orange-500: #ff7700;
+  --coolbiej-colors-orange-600: #cc5f00;
+  --coolbiej-colors-orange-700: #994700;
+  --coolbiej-colors-orange-800: #663000;
+  --coolbiej-colors-orange-900: #331800;
+
+  --coolbiej-colors-yellowmellow-100: #fff6d5;
+  --coolbiej-colors-yellowmellow-200: #ffedab;
+  --coolbiej-colors-yellowmellow-300: #ffe581;
+  --coolbiej-colors-yellowmellow-400: #ffdc57;
+  --coolbiej-colors-yellowmellow-500: #ffd32d;
+  --coolbiej-colors-yellowmellow-600: #cca924;
+  --coolbiej-colors-yellowmellow-700: #997f1b;
+  --coolbiej-colors-yellowmellow-800: #665412;
+  --coolbiej-colors-yellowmellow-900: #332a09;
+  
+  --coolbiej-colors-maroon-100: #f4ccdb;
+  --coolbiej-colors-maroon-200: #e999b7;
+  --coolbiej-colors-maroon-300: #dd6694;
+  --coolbiej-colors-maroon-400: #d23370;
+  --coolbiej-colors-maroon-500: #c7004c;
+  --coolbiej-colors-maroon-600: #9f003d;
+  --coolbiej-colors-maroon-700: #77002e;
+  --coolbiej-colors-maroon-800: #50001e;
+  --coolbiej-colors-maroon-900: #28000f;
+  
+  --coolbiej-fontSizes-xs: 0.75rem;
+  --coolbiej-fontSizes-sm: 0.875rem;
+  --coolbiej-fontSizes-md: 1rem;
+  --coolbiej-fontSizes-lg: 1.125rem;
+  --coolbiej-fontSizes-xl: 1.375rem;
+  --coolbiej-fontSizes-2xl: 1.5rem;
+  --coolbiej-fontSizes-3xl: 2rem;
+  --coolbiej-fontSizes-4xl: 2.5rem;
+  --coolbiej-fontSizes-5xl: 3rem;
+  --coolbiej-fontSizes-6xl: 3.75rem;
+  --coolbiej-fontSizes-7xl: 4.5rem;
+  --coolbiej-fontSizes-8xl: 6rem;
+  --coolbiej-fontSizes-9xl: 8rem;
+
+  --coolbiej-fontWeights-hairline: 100;
+  --coolbiej-fontWeights-thin: 200;
+  --coolbiej-fontWeights-light: 300;
+  --coolbiej-fontWeights-normal: 400;
+  --coolbiej-fontWeights-medium: 500;
+  --coolbiej-fontWeights-semibold: 600;
+  --coolbiej-fontWeights-bold: 700;
+  --coolbiej-fontWeights-extrabold: 800;
+  --coolbiej-fontWeights-black: 900;
+
+  --coolbiej-sizes-1: 0.25rem;
+  --coolbiej-sizes-2: 0.5rem;
+  --coolbiej-sizes-3: 0.75rem;
+  --coolbiej-sizes-4: 1rem;
+  --coolbiej-sizes-5: 1.25rem;
+  --coolbiej-sizes-6: 1.5rem;
+  --coolbiej-sizes-7: 1.75rem;
+  --coolbiej-sizes-8: 2rem;
+  --coolbiej-sizes-9: 2.25rem;
+  --coolbiej-sizes-10: 2.5rem;
+  --coolbiej-sizes-12: 3rem;
+  --coolbiej-sizes-14: 3.5rem;
+  --coolbiej-sizes-16: 4rem;
+  --coolbiej-sizes-18: 4.5rem;
+  --coolbiej-sizes-20: 5rem;
+  --coolbiej-sizes-24: 6rem;
+  --coolbiej-sizes-28: 7rem;
+  --coolbiej-sizes-32: 8rem;
+  --coolbiej-sizes-36: 9rem;
+  --coolbiej-sizes-40: 10rem;
+  --coolbiej-sizes-44: 11rem;
+  --coolbiej-sizes-48: 12rem;
+  --coolbiej-sizes-52: 13rem;
+  --coolbiej-sizes-56: 14rem;
+  --coolbiej-sizes-60: 15rem;
+  --coolbiej-sizes-64: 16rem;
+  --coolbiej-sizes-72: 18rem;
+  --coolbiej-sizes-80: 20rem;
+  --coolbiej-sizes-96: 24rem;
+  --coolbiej-sizes-px: 1px;
+  --coolbiej-sizes-0-5: 0.125rem;
+  --coolbiej-sizes-1-5: 0.375rem;
+  --coolbiej-sizes-2-5: 0.625rem;
+  --coolbiej-sizes-3-5: 0.875rem;
+  --coolbiej-sizes-max: max-content;
+  --coolbiej-sizes-min: min-content;
+  --coolbiej-sizes-full: 100%;
+  --coolbiej-sizes-3xs: 14rem;
+  --coolbiej-sizes-2xs: 16rem;
+  --coolbiej-sizes-xs: 20rem;
+  --coolbiej-sizes-sm: 24rem;
+  --coolbiej-sizes-md: 28rem;
+  --coolbiej-sizes-lg: 32rem;
+  --coolbiej-sizes-xl: 36rem;
+  --coolbiej-sizes-2xl: 42rem;
+  --coolbiej-sizes-3xl: 48rem;
+  --coolbiej-sizes-4xl: 56rem;
+  --coolbiej-sizes-5xl: 64rem;
+  --coolbiej-sizes-6xl: 72rem;
+  --coolbiej-sizes-7xl: 80rem;
+  --coolbiej-sizes-8xl: 90rem;
+  --coolbiej-sizes-container-sm: 640px;
+  --coolbiej-sizes-container-md: 768px;
+  --coolbiej-sizes-container-lg: 1024px;
+  --coolbiej-sizes-container-xl: 1280px;
+
+  /* shadows */
+
+  --coolbiej-shadows-xs: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --coolbiej-shadows-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --coolbiej-shadows-base: 0px 1px 4px rgba(30, 41, 54, 0.2);
+  --coolbiej-shadows-md: 0px 4px 12px rgba(30, 41, 54, 0.16);
+  --coolbiej-shadows-lg: 0px 8px 32px rgba(30, 41, 54, 0.12);
+  --coolbiej-shadows-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --coolbiej-shadows-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --coolbiej-shadows-outline: 0 0 0 3px rgba(66, 153, 225, 0.6);
+  --coolbiej-shadows-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --coolbiej-shadows-none: none;
+  --coolbiej-shadows-dark-lg: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.4) 0px 15px 40px;
+
+  --coolbiej-transition-default: all 0.1s ease-in-out;
+}
+
+/* margins */
+.m-05 {
+  margin: 0.5rem;
+}
+.m-05-t {
+  margin-top: 0.5rem;
+}
+.m-05-b {
+  margin-bottom: 0.5rem;
+}
+.m-05-l {
+  margin-left: 0.5rem;
+}
+.m-05-r {
+  margin-right: 0.5rem;
+}
+.m-05-tb {
+  margin: 0.5rem 0;
+}
+.m-05-lr {
+  margin: 0 0.5rem;
+}
+.m-1 {
+  margin: 1rem;
+}
+/* text */
+
+/* flex box */
+.flex {
+  display: flex;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.jc-c {
+  justify-content: center;
+}
+.ai-c {
+  align-items: center;
+}
